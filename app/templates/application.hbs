@@ -5,6 +5,19 @@
 
   <div class="row">
     <div class="hangman-guesses">
+
+      <div>
+        {{#if game.isWaiting}}
+          Would you like to play hangman?
+          {{input name="word" value=newWord insert-newline="playWord"}}
+        {{else if game.isPlaying}}
+          Oh buddy, bet you cannot guess this one!!
+        {{else if game.isWinning}}
+          Oh man you won!
+        {{else if game.isLosing}}
+          Sorry, try again next time.
+        {{/if}}
+      </div>
     </div>
   </div>
 
