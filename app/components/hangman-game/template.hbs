@@ -1,20 +1,30 @@
-<div class="hangman-letters">
-  {{#if game.isWaiting}}
-    Would you like to play a game? I need a word.
-    {{input name="word" value=newWord insert-newline="playWord"}}
-  {{else if game.isPlaying}}
-    Oh man I bet you cannot guess it
-  {{else if game.isWinning}}
-    Congrats!
-  {{else if game.isLosing}}
-    Oh my!
-  {{/if}}
-
-  {{#each letters as |letter|}}
-    {{hangman-letter letter=letter game=game}}
-  {{/each}}
+<div class="row">
+  <div class="hangman-guesses">
+    {{#each wordLetters as |letter|}}
+      {{hangman-guess letter=letter game=game}}
+    {{/each}}
+  </div>
 </div>
 
-<div class="hangman-graphic">
-  {{hangman-graphic game=game}}
+<div class="row">
+  <div class="hangman-letters">
+    {{#if game.isWaiting}}
+      Would you like to play a game? I need a word.
+      {{input name="word" value=newWord insert-newline="playWord"}}
+    {{else if game.isPlaying}}
+      Oh man I bet you cannot guess it
+    {{else if game.isWinning}}
+      Congrats!
+    {{else if game.isLosing}}
+      Oh my!
+    {{/if}}
+
+    {{#each letters as |letter|}}
+      {{hangman-letter letter=letter game=game}}
+    {{/each}}
+  </div>
+
+  <div class="hangman-graphic">
+    {{hangman-graphic game=game}}
+  </div>
 </div>

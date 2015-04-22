@@ -9,6 +9,14 @@ header {
   @include span-columns(12);
 }
 
+.row {
+  @include row;
+}
+
+.hangman-guesses {
+  @include span-columns(12);
+}
+
 .hangman-letters {
   @include span-columns(3);
 }

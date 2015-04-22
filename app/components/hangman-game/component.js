@@ -9,7 +9,9 @@ export default Ember.Component.extend({
 
   actions: {
     playWord() {
-      this.get('game').playWord(this.get('newWord'));
+      var word = this.get('newWord');
+      this.get('game').playWord(word);
+      this.set('wordLetters', word.split(''));
       this.set('newWord', '');
     }
   }
