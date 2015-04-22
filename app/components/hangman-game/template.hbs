@@ -1,7 +1,7 @@
 <div class="hangman-letters">
   {{#if game.isWaiting}}
     Would you like to play a game? I need a word.
-    {{input value=newWord insert-newline="playWord"}}
+    {{input name="word" value=newWord insert-newline="playWord"}}
   {{else if game.isPlaying}}
     Oh man I bet you cannot guess it
   {{else if game.isWinning}}
@@ -16,4 +16,5 @@
 </div>
 
 <div class="hangman-graphic">
+  {{hangman-graphic game=game}}
 </div>

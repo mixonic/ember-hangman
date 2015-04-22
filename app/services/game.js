@@ -13,7 +13,6 @@ export default Ember.Service.extend(Ember.Evented, {
   },
 
   playLetter(rawLetter) {
-    var isGuessed = false;
     var letter = rawLetter.toLowerCase();
 
     var guessedLetter = Ember.keys(this._guessedLetterMap).find((l) => {
@@ -80,12 +79,16 @@ export default Ember.Service.extend(Ember.Evented, {
     switch (this._state) {
       case WAITING:
         state.isWaiting = true;
+        break;
       case PLAYING:
         state.isPlaying = true;
+        break;
       case WON:
         state.isWinning = true;
+        break;
       case LOST:
         state.isLosing = true;
+        break;
     }
     this.setProperties(state);
   })
