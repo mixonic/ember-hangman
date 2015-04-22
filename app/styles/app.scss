@@ -1,0 +1,26 @@
+@import "bourbon";
+@import 'bower_components/neat/app/assets/stylesheets/neat';
+
+section {
+  @include outer-container;
+}
+
+header {
+  @include span-columns(12);
+}
+
+.hangman-letters {
+  @include span-columns(3);
+}
+
+.hangman-graphic {
+  @include span-columns(9);
+}
+
+.missed {
+  background: red;
+}
+
+.guessed {
+  background: green;
+}
