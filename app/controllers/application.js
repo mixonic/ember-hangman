@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
     playWord() {
       var word = this.get('newWord');
       this.get('game').playWord(word);
+      this.set('wordLetters', word.split(''));
       this.set('newWord', '');
     }
   }
