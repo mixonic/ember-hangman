@@ -18,7 +18,7 @@ export default Ember.Component.extend({
     this.updateGraphic();
 
     var game = this.get('game');
-    game.on('didMissLetter', (l) => {
+    game.on('didMissLetter', () => {
       this.incrementProperty('missedLetterCount');
       this.updateGraphic();
     });
