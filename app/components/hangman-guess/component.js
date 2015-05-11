@@ -5,20 +5,8 @@ export default Ember.Component.extend({
   game: null,
   letter: null,
 
-  isGuessed: false,
+  isGuessed: Ember.computed('game.guessedLetters', function() {
+    return this.get('game.guessedLetters').indexOf(this.get('letter')) !== -1;
+  })
 
-  init() {
-    this._super.apply(this, arguments);
-    var game = this.get('game');
-    game.on('didGuessLetter', (l) => {
-      if (l === this.get('letter')) {
-        this.set('isGuessed', true);
-      }
-    });
-    game.on('didReset', this, this.reset);
-  },
-
-  reset() {
-    this.set('isGuessed', false);
-  },
 });
